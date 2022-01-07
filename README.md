@@ -1,0 +1,2 @@
+# MyBudget
+Expenses management app
