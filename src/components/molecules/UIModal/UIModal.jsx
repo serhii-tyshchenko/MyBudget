@@ -14,7 +14,7 @@ const UIModal = ({
   const STR = useContext(Localization);
   const componentClassName = getClassName(NAME_SPACE, className);
 
-  const modalRoot = document.getElementById('modal-root');
+  const modalRoot = document.getElementById('portal-root');
 
   return isVisible && createPortal(
     (

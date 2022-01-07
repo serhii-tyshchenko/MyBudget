@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-import { UIModal, UIButton } from 'components/atoms';
+import { UIButton } from 'components/atoms';
+import { UIModal } from 'components/molecules';
 
 import './UIModalConfirm.scss';
 

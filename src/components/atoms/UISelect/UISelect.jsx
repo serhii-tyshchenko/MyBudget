@@ -7,12 +7,13 @@ const NAME_SPACE = 'ui-select';
 
 const UISelect = (props) => {
   const {
-    value, onChange, options, className, title, required,
+    value, onChange, options, className, title, required, name,
   } = props;
   const componentClassName = getClassName(NAME_SPACE, className);
 
   return (
     <select
+      name={name}
       onChange={onChange}
       value={value}
       required={required}
@@ -37,6 +38,7 @@ UISelect.defaultProps = {
   className: '',
   onChange: null,
   value: '',
+  name: 'ui-select',
   title: 'Select me',
   options: [
     {
@@ -60,6 +62,7 @@ UISelect.propTypes = {
   onChange: PropTypes.func,
   value: PropTypes.string,
   title: PropTypes.string,
+  name: PropTypes.string,
   options: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.string,

@@ -1,0 +1,20 @@
+@import '~styles/variables';
+@import '~styles/mixins';
+
+.account-list-view {
+  &__title {
+    margin-bottom: 0;
+  }
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  &__add-btn {
+    font-size: 1.5rem;
+  }
+}
+.account-list {
+  list-style-type: none;
+}

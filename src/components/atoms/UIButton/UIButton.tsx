@@ -2,7 +2,7 @@ import { getClassName } from 'utils';
 
 import './UIButton.scss';
 
-interface UIButtonProps {
+interface IUIButtonProps {
   onClick?: () => void;
   className?: string;
   type?: 'button' | 'submit' | 'reset';
@@ -14,7 +14,7 @@ interface UIButtonProps {
 
 const NAME_SPACE = 'ui-button';
 
-const UIButton = (props: UIButtonProps) => {
+const UIButton = (props: IUIButtonProps) => {
   const {
     onClick,
     className = '',
@@ -23,7 +23,7 @@ const UIButton = (props: UIButtonProps) => {
     size = 'normal',
     text = 'Button',
     disabled = false,
-  }: UIButtonProps = props;
+  }: IUIButtonProps = props;
   const componentClassName = getClassName(
     NAME_SPACE,
     `${NAME_SPACE}--${btnType}`,
