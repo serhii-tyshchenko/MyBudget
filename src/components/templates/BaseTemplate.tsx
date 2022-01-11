@@ -1,12 +1,10 @@
 import React from 'react';
 
-import { Header } from './Header';
-import { Main } from './Main';
-import { Footer } from './Footer';
+import { Header, Main, Footer } from 'components/organisms';
 
 interface IProps extends React.HTMLAttributes<Element> {}
 
-const BaseLayout = ({ children }: IProps) => (
+const BaseTemplate = ({ children }: IProps) => (
   <div className="container">
     <Header />
     <Main>{children}</Main>
@@ -14,4 +12,4 @@ const BaseLayout = ({ children }: IProps) => (
   </div>
 );
 
-export { BaseLayout };
+export { BaseTemplate };

@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, memo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Localization } from 'contexts';
 import { updateSettings } from 'store/actions';
@@ -10,13 +10,13 @@ import './LanguageSelector.scss';
 const LanguageSelector = () => {
   const dispatch = useDispatch();
   const STR = useContext(Localization);
-  const { language: currLang } = useSelector((state) => state.settings);
+  const { language } = useSelector((state) => state.settings);
 
   const handleLanguageChange = (evt) => dispatch(updateSettings({ language: evt.target.value }))
 
   return (
     <UISelect
-      value={currLang}
+      value={language}
       onChange={handleLanguageChange}
       options={languages}
       className="language-selector"
@@ -25,4 +25,4 @@ const LanguageSelector = () => {
   );
 };
 
-export { LanguageSelector };
+export default memo(LanguageSelector);

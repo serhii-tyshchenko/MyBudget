@@ -1,7 +1,8 @@
-/* eslint-disable react/prop-types */
 import React from 'react';
 
 import './ErrorBoundary.scss';
+
+const NAME_SPACE = 'error-boundary';
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -21,11 +22,11 @@ class ErrorBoundary extends React.Component {
     const { children } = this.props;
     if (errorInfo) {
       return (
-        <div className="error-boundary">
-          <h2 className="error-boundary__title">
+        <div className={NAME_SPACE}>
+          <h2 className={`${NAME_SPACE}__title`}>
             Sorry. Something went wrong :(
           </h2>
-          <div className="error-boundary__details">
+          <div className={`${NAME_SPACE}__details`}>
             <p>
               {error && <strong>{error.toString()}</strong>}
               <br />

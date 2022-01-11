@@ -1,10 +1,10 @@
-import { BaseLayout } from 'layouts';
+import { BaseTemplate } from 'components/templates';
 import { AccountListView } from 'components/organisms';
 
 const Home = () => (
-  <BaseLayout>
+  <BaseTemplate>
     <AccountListView />
-  </BaseLayout>
+  </BaseTemplate>
 );
 
 export { Home };
