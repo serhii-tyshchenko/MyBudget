@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import store from 'store';
 import { LocalizationProvider } from 'contexts';
+import { ErrorBoundary } from 'layouts';
 
 import App from './App';
 import reportWebVitals from './reportWebVitals';
@@ -12,9 +13,11 @@ import './index.scss';
 ReactDOM.render(
   <Provider store={store}>
     <StrictMode>
-      <LocalizationProvider>
-        <App />
-      </LocalizationProvider>
+      <ErrorBoundary>
+        <LocalizationProvider>
+          <App />
+        </LocalizationProvider>
+      </ErrorBoundary>
     </StrictMode>
   </Provider>,
   document.getElementById('root')
