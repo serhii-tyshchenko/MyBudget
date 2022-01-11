@@ -30,6 +30,7 @@ const UIModal = ({
             <UIIconButton
               className={`${NAME_SPACE}__btn-close`}
               icon="cancel"
+              size="big"
               onClick={onClose}
               title={STR.CLOSE}
             />

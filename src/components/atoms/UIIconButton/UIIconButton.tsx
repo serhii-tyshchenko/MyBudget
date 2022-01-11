@@ -2,26 +2,29 @@ import { getClassName } from 'utils';
 
 import './UIIconButton.scss';
 
-interface UIIconButtonProps {
+type TUIIconButtonProps = {
   onClick?: () => void;
   className?: string;
   icon?: string;
   type?: 'button' | 'submit' | 'reset';
   title?: string;
-}
+  size?: 'small' | 'normal' | 'big';
+};
 
 const NAME_SPACE = 'ui-icon-button';
 
-const UIIconButton = (props: UIIconButtonProps) => {
+const UIIconButton = (props: TUIIconButtonProps) => {
   const {
     icon = 'trash',
     onClick,
     className = '',
     title = 'Click me',
     type = 'button',
+    size = 'normal',
   } = props;
   const componentClassName = getClassName(
     NAME_SPACE,
+    `${NAME_SPACE}--${size}`,
     `icon-${icon}`,
     className
   );

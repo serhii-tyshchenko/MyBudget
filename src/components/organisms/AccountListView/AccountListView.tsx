@@ -62,11 +62,7 @@ const AccountListView = () => {
       <section className={NAME_SPACE}>
         <header className={`${NAME_SPACE}__header`}>
           <h3 className={`${NAME_SPACE}__title`}>Account List</h3>
-          <UIIconButton
-            icon="plus"
-            className={`${NAME_SPACE}__add-btn`}
-            onClick={handleAddClick}
-          />
+          <UIIconButton icon="plus" size="big" onClick={handleAddClick} />
         </header>
         <ul className="account-list">
           {accounts.map((account: TAccount) => (

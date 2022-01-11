@@ -1,2 +1,3 @@
-export { getClassName } from './getClassName';
-export { getId } from './getId';
+export * from './getClassName';
+export * from './getId';
+export * from './isEmpty';

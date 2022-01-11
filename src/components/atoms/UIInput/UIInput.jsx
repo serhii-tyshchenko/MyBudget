@@ -49,7 +49,7 @@ UIInput.propTypes = {
   onBlur: PropTypes.func,
   value: PropTypes.oneOfType([
     PropTypes.string,
-    PropTypes.number
+    PropTypes.number,
   ]),
   placeholder: PropTypes.string,
   required: PropTypes.bool,

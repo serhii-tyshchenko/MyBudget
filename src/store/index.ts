@@ -3,7 +3,7 @@ import { createStore, applyMiddleware, compose, combineReducers } from 'redux';
 import { ls } from 'services';
 import thunk from 'redux-thunk';
 
-import { settings, api, accounts } from './reducers';
+import { settings, api, accounts, expenses } from './reducers';
 
 declare global {
   interface Window {
@@ -15,6 +15,7 @@ export const rootReducer = combineReducers({
   settings,
   api,
   accounts,
+  expenses,
 });
 
 const persistedState = ls.loadState();
@@ -25,10 +26,11 @@ const store = createStore(
   composeTools(applyMiddleware(thunk))
 );
 store.subscribe(() => {
-  const { settings, accounts } = store.getState();
+  const { settings, accounts, expenses } = store.getState();
   ls.saveState({
     settings,
     accounts,
+    expenses,
   });
 });
 

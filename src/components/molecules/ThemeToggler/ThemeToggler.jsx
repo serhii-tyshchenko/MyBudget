@@ -7,16 +7,13 @@ const ThemeToggler = () => {
   const { theme } = useSelector((state) => state.settings);
   const btnIcon = theme === 'light' ? 'moon' : 'sun';
 
-  const handleThemeChange = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    dispatch(updateSettings({ theme: newTheme }));
-  }
+  const handleThemeChange = () => dispatch(updateSettings({ theme: theme === 'light' ? 'dark' : 'light' }))
 
   return (
     <UIIconButton
       icon={btnIcon}
       onClick={handleThemeChange}
-      className="theme-toggler"
+      size="big"
     />
   );
 };
