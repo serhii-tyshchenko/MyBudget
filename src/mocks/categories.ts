@@ -8,3 +8,14 @@ export const expenseCategories = [
     name: 'Car',
   },
 ];
+
+export const incomeCategories = [
+  {
+    id: 'income1',
+    name: 'Salary',
+  },
+  {
+    id: 'income2',
+    name: 'Renta',
+  },
+];

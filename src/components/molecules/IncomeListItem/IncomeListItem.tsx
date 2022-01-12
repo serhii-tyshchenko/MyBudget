@@ -1,24 +1,23 @@
 import { useCallback } from 'react';
 import { UIIconButton } from 'components/atoms';
+import { TIncome } from 'types/income';
 
-import './AccountListItem.scss';
+import './IncomeListItem.scss';
 
-const NAME_SPACE = 'account-list-item';
+const NAME_SPACE = 'income-list-item';
 
-interface IAccountListItemProps {
+type TIncomeListItemProps = {
   onDeleteClick: Function;
   onEditClick: Function;
-  data: { id: string; name: string; currency: string; initialBalance: number };
-}
+  data: TIncome;
+};
 
-const AccountListItem = ({
+const IncomeListItem = ({
   data,
   onDeleteClick,
   onEditClick,
-}: IAccountListItemProps) => {
-  const { id, name, currency, initialBalance } = data;
-
-  const balance = initialBalance;
+}: TIncomeListItemProps) => {
+  const { id, date, amount, note, account, category } = data;
 
   const handleDeleteClick = useCallback(
     () => onDeleteClick(id),
@@ -30,20 +29,21 @@ const AccountListItem = ({
   return (
     <li className={NAME_SPACE}>
       <div className={`${NAME_SPACE}__data`}>
-        <span className={`${NAME_SPACE}__name`}>{name}</span>
-        <span className={`${NAME_SPACE}__balance`}>
-          {balance} {currency}
-        </span>
+        <span>Date: {date}</span>
+        <span>Account: {account}</span>
+        <span>Category: {category}</span>
+        <span>Amount: {amount}</span>
+        {note && <span>Note: {note}</span>}
       </div>
       <div className={`${NAME_SPACE}__controls`}>
         <UIIconButton
           icon="pencil"
-          title="Edit account"
+          title="Edit expense"
           onClick={handleEditClick}
         />
         <UIIconButton
           icon="trash"
-          title="Remove account"
+          title="Remove expense"
           onClick={handleDeleteClick}
         />
       </div>
@@ -51,4 +51,4 @@ const AccountListItem = ({
   );
 };
 
-export { AccountListItem };
+export { IncomeListItem };
