@@ -1,4 +1,9 @@
-import { ADD_EXPENSE, UPDATE_EXPENSE, REMOVE_EXPENSE } from '../action-types';
+import {
+  ADD_EXPENSE,
+  UPDATE_EXPENSE,
+  REMOVE_EXPENSE,
+  REMOVE_ACCOUNT,
+} from '../action-types';
 
 const initialState = [];
 
@@ -19,6 +24,9 @@ export const expenses = (state = initialState, action) => {
 
     case REMOVE_EXPENSE:
       return state.filter((item) => item.id !== payload);
+
+    case REMOVE_ACCOUNT:
+      return state.filter((item) => item.account !== payload);
 
     default:
       return state;

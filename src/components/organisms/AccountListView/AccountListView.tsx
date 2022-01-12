@@ -31,9 +31,9 @@ const AccountListView = () => {
   );
 
   const getAccountBalance = (id: string): number => {
-    const initialBalance = accounts.find(
-      (item) => item.id === id
-    ).initialBalance;
+    const initialBalance = Number(
+      accounts.find((item) => item.id === id).initialBalance
+    );
     const accountExpenses = expenses
       .filter((expense) => expense.account === id)
       .reduce((acc, item) => acc + +item.amount, 0);
