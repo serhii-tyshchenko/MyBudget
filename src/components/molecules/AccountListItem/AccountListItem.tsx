@@ -5,20 +5,20 @@ import './AccountListItem.scss';
 
 const NAME_SPACE = 'account-list-item';
 
-interface IAccountListItemProps {
+type TAccountListItemProps = {
   onDeleteClick: Function;
   onEditClick: Function;
   data: { id: string; name: string; currency: string; initialBalance: number };
-}
+  balance: number;
+};
 
 const AccountListItem = ({
   data,
+  balance,
   onDeleteClick,
   onEditClick,
-}: IAccountListItemProps) => {
-  const { id, name, currency, initialBalance } = data;
-
-  const balance = initialBalance;
+}: TAccountListItemProps) => {
+  const { id, name, currency } = data;
 
   const handleDeleteClick = useCallback(
     () => onDeleteClick(id),

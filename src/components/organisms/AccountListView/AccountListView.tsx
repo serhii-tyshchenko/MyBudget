@@ -26,7 +26,22 @@ const AccountListView = () => {
   const [formData, setFormData] = useState(defaultFormData);
   const dispatch = useDispatch();
 
-  const { accounts } = useSelector((state: TRootState) => state);
+  const { accounts, expenses, incomes } = useSelector(
+    (state: TRootState) => state
+  );
+
+  const getAccountBalance = (id: string): number => {
+    const initialBalance = accounts.find(
+      (item) => item.id === id
+    ).initialBalance;
+    const accountExpenses = expenses
+      .filter((expense) => expense.account === id)
+      .reduce((acc, item) => acc + +item.amount, 0);
+    const accountIncomes = incomes
+      .filter((income) => income.account === id)
+      .reduce((acc, item) => acc + +item.amount, 0);
+    return initialBalance + accountIncomes - accountExpenses;
+  };
 
   const handleDeleteClick = (id: string): void => {
     if (window.confirm('Are you sure?')) {
@@ -68,6 +83,7 @@ const AccountListView = () => {
           {accounts.map((account: TAccount) => (
             <AccountListItem
               data={account}
+              balance={getAccountBalance(account.id)}
               onDeleteClick={handleDeleteClick}
               onEditClick={handleEditClick}
               key={account.id}
