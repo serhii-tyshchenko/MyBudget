@@ -1,0 +1,15 @@
+@import '~styles/variables';
+
+.navigation {
+  display: flex;
+  justify-content: center;
+  &__link {
+    margin-right: 1rem;
+    user-select: none;
+    &--active {
+      font-weight: bold;
+      text-decoration: none;
+      pointer-events: none;
+    }
+  }
+}

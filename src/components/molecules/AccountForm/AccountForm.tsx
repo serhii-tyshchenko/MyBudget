@@ -73,7 +73,11 @@ const AccountForm = ({ data, onClose, onSave }: TAccountFormProps) => {
         </UIFormGroup>
       </main>
       <footer className="account-form__footer">
-        <UIButton text="Add" onClick={handleSubmit} />
+        <UIButton
+          text="Add"
+          onClick={handleSubmit}
+          className="account-form__submit-btn"
+        />
         <UIButton btnType="secondary" text="Cancel" onClick={onClose} />
       </footer>
     </form>

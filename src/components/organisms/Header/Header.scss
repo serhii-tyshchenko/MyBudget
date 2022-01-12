@@ -9,6 +9,7 @@
     align-items: center;
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
     padding: 0 15px;
   }
 
@@ -37,18 +38,24 @@
       font-size: 1.5rem;
     }
   }
+  &__left {
+    order: 1;
+  }
+
+  &__middle {
+    order: 3;
+    flex-basis: 100%;
+    margin: 0 auto;
+    padding: 1rem 0;
+    @include for-size(tablet) {
+      order: 2;
+      flex-basis: auto;
+    }
+  }
 
   &__right {
     align-items: center;
     display: flex;
-
-    .language-selector {
-      font-size: 1rem;
-      margin-right: 0.5rem;
-
-      &:hover {
-        background: var(--background-secondary-hover);
-      }
-    }
+    order: 2;
   }
 }

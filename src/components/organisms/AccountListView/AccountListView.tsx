@@ -5,6 +5,7 @@ import { addAccount, updateAccount, removeAccount } from 'store/actions';
 import { AccountListItem, AccountModal } from 'components/molecules';
 import { UIIconButton } from 'components/atoms';
 import { TRootState } from 'store';
+import { isEmpty } from 'utils';
 
 import { TAccount } from 'types/account';
 
@@ -79,17 +80,21 @@ const AccountListView = () => {
           <h3 className={`${NAME_SPACE}__title`}>Account List</h3>
           <UIIconButton icon="plus" size="big" onClick={handleAddClick} />
         </header>
-        <ul className="account-list">
-          {accounts.map((account: TAccount) => (
-            <AccountListItem
-              data={account}
-              balance={getAccountBalance(account.id)}
-              onDeleteClick={handleDeleteClick}
-              onEditClick={handleEditClick}
-              key={account.id}
-            />
-          ))}
-        </ul>
+        {!isEmpty(accounts) ? (
+          <ul className="account-list">
+            {accounts.map((account: TAccount) => (
+              <AccountListItem
+                data={account}
+                balance={getAccountBalance(account.id)}
+                onDeleteClick={handleDeleteClick}
+                onEditClick={handleEditClick}
+                key={account.id}
+              />
+            ))}
+          </ul>
+        ) : (
+          <p>No data to show. Click '+' to add account.</p>
+        )}
       </section>
       <AccountModal
         isVisible={isModalVisible}
