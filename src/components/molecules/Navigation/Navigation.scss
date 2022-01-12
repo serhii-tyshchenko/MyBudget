@@ -6,6 +6,9 @@
   &__link {
     margin-right: 1rem;
     user-select: none;
+    &:last-child {
+      margin-right: 0;
+    }
     &--active {
       font-weight: bold;
       text-decoration: none;
