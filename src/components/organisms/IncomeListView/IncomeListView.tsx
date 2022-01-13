@@ -10,7 +10,7 @@ import { IncomeList } from 'components/organisms';
 
 import { isEmpty, getId } from 'utils';
 
-import { TIncome } from 'types/income';
+import { TIncome } from 'types';
 
 import './IncomeListView.scss';
 

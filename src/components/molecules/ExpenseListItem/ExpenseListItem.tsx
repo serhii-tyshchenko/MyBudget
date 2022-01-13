@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { UIIconButton } from 'components/atoms';
-import { TExpense } from 'types/expense';
+import { TExpense } from 'types';
 
 import './ExpenseListItem.scss';
 

@@ -10,7 +10,7 @@ import { ExpenseList } from 'components/organisms';
 
 import { isEmpty, getId } from 'utils';
 
-import { TExpense } from 'types/expense';
+import { TExpense } from 'types';
 
 import './ExpenseListView.scss';
 

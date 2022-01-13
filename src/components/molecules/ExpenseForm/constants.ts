@@ -1,4 +1,4 @@
-import { TExpense } from 'types/expense';
+import { TExpense } from 'types';
 
 export const NAME_SPACE = 'expense-form';
 

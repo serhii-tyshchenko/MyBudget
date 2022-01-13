@@ -1,10 +1,4 @@
-type TCurrency = {
-  value: string;
-  label: string;
-  symbol: string;
-};
-
-type TCurrencyList = Array<TCurrency>;
+import { TCurrencyList } from 'types';
 
 export const currencies: TCurrencyList = [
   { value: 'uah', label: 'UAH', symbol: '₴' },

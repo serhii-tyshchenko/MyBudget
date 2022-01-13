@@ -1,4 +1,4 @@
-import { TIncome } from 'types/income';
+import { TIncome } from 'types';
 
 export const NAME_SPACE = 'income-form';
 

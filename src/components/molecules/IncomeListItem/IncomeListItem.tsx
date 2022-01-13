@@ -1,6 +1,6 @@
 import { useCallback } from 'react';
 import { UIIconButton } from 'components/atoms';
-import { TIncome } from 'types/income';
+import { TIncome } from 'types';
 
 import './IncomeListItem.scss';
 

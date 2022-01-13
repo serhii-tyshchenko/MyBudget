@@ -1,4 +1,4 @@
-import { TAccount } from 'types/account';
+import { TAccount, TTranslation } from 'types';
 
 export type TAccountModalProps = {
   onClose: Function;
@@ -6,4 +6,5 @@ export type TAccountModalProps = {
   isVisible: boolean;
   data?: TAccount;
   mode: string;
+  STR: TTranslation;
 };
