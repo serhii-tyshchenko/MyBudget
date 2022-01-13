@@ -32,27 +32,29 @@ const AccountForm = ({ data, onClose, onSave }: TAccountFormProps) => {
 
   return (
     <form className={NAME_SPACE} onSubmit={handleSubmit}>
-      <main className="account-form__main">
+      <main className={`${NAME_SPACE}__main`}>
         <UIFormGroup>
-          <span className="account-form__label">Account name: </span>
+          <span className={`${NAME_SPACE}__label`}>Account name: </span>
           <UIInput
             placeholder="cash, bank account etc"
             onChange={handleChange}
             name="name"
             value={formData.name}
+            className={`${NAME_SPACE}__name`}
           />
         </UIFormGroup>
         <UIFormGroup>
-          <span className="account-form__label">Inital balance: </span>
+          <span className={`${NAME_SPACE}__label`}>Inital balance: </span>
           <UIInput
             type="number"
             onChange={handleChange}
             name="initial-balance"
             value={formData.initialBalance}
+            className={`${NAME_SPACE}__balance`}
           />
         </UIFormGroup>
         <UIFormGroup>
-          <span>Currency: </span>
+          <span className={`${NAME_SPACE}__label`}>Currency: </span>
           <UISelect
             name="currency"
             value={formData.currency}
@@ -64,7 +66,7 @@ const AccountForm = ({ data, onClose, onSave }: TAccountFormProps) => {
           />
         </UIFormGroup>
         <UIFormGroup>
-          <span>Hide from list: </span>
+          <span className={`${NAME_SPACE}__label`}>Hide from list: </span>
           <UICheckbox
             checked={formData.isHidden}
             name="is-hidden"
@@ -72,11 +74,11 @@ const AccountForm = ({ data, onClose, onSave }: TAccountFormProps) => {
           />
         </UIFormGroup>
       </main>
-      <footer className="account-form__footer">
+      <footer className={`${NAME_SPACE}__footer`}>
         <UIButton
           text="Add"
           onClick={handleSubmit}
-          className="account-form__submit-btn"
+          className={`${NAME_SPACE}__submit-btn`}
         />
         <UIButton btnType="secondary" text="Cancel" onClick={onClose} />
       </footer>
