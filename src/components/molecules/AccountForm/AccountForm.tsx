@@ -7,7 +7,7 @@ import { NAME_SPACE, defaultFormData } from './constants';
 
 import './AccountForm.scss';
 
-const AccountForm = ({ data, onClose, onSave }: TAccountFormProps) => {
+const AccountForm = ({ data, onClose, onSave, STR }: TAccountFormProps) => {
   const [formData, setFormData] = useState(data || defaultFormData);
 
   const handleChange = (e: {
@@ -34,7 +34,7 @@ const AccountForm = ({ data, onClose, onSave }: TAccountFormProps) => {
     <form className={NAME_SPACE} onSubmit={handleSubmit}>
       <main className={`${NAME_SPACE}__main`}>
         <UIFormGroup>
-          <span className={`${NAME_SPACE}__label`}>Account name: </span>
+          <span className={`${NAME_SPACE}__label`}>{STR.ACCOUNT_NAME}</span>
           <UIInput
             placeholder="cash, bank account etc"
             onChange={handleChange}
@@ -44,7 +44,7 @@ const AccountForm = ({ data, onClose, onSave }: TAccountFormProps) => {
           />
         </UIFormGroup>
         <UIFormGroup>
-          <span className={`${NAME_SPACE}__label`}>Inital balance: </span>
+          <span className={`${NAME_SPACE}__label`}>{STR.INITIAL_BALANCE}</span>
           <UIInput
             type="number"
             onChange={handleChange}
@@ -54,7 +54,7 @@ const AccountForm = ({ data, onClose, onSave }: TAccountFormProps) => {
           />
         </UIFormGroup>
         <UIFormGroup>
-          <span className={`${NAME_SPACE}__label`}>Currency: </span>
+          <span className={`${NAME_SPACE}__label`}>{STR.CURRENCY}</span>
           <UISelect
             name="currency"
             value={formData.currency}
@@ -66,7 +66,7 @@ const AccountForm = ({ data, onClose, onSave }: TAccountFormProps) => {
           />
         </UIFormGroup>
         <UIFormGroup>
-          <span className={`${NAME_SPACE}__label`}>Hide from list: </span>
+          <span className={`${NAME_SPACE}__label`}>{STR.HIDE_FROM_LIST}</span>
           <UICheckbox
             checked={formData.isHidden}
             name="is-hidden"
@@ -76,11 +76,11 @@ const AccountForm = ({ data, onClose, onSave }: TAccountFormProps) => {
       </main>
       <footer className={`${NAME_SPACE}__footer`}>
         <UIButton
-          text="Add"
+          text={STR.ADD}
           onClick={handleSubmit}
           className={`${NAME_SPACE}__submit-btn`}
         />
-        <UIButton btnType="secondary" text="Cancel" onClick={onClose} />
+        <UIButton btnType="secondary" text={STR.CANCEL} onClick={onClose} />
       </footer>
     </form>
   );

@@ -1,13 +1,16 @@
-import { useState } from 'react';
-import { getId } from 'utils';
+import { useState, useContext } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+
+import { Localization } from 'contexts';
+
 import { addAccount, updateAccount, removeAccount } from 'store/actions';
+import { TRootState } from 'store';
+
 import { AccountListItem, AccountModal } from 'components/molecules';
 import { UIIconButton } from 'components/atoms';
-import { TRootState } from 'store';
-import { isEmpty } from 'utils';
+import { getId, isEmpty } from 'utils';
 
-import { TAccount } from 'types/account';
+import { TAccount } from 'types';
 
 import './AccountListView.scss';
 
@@ -26,6 +29,7 @@ const AccountListView = () => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [formData, setFormData] = useState(defaultFormData);
   const dispatch = useDispatch();
+  const STR = useContext(Localization);
 
   const { accounts, expenses, incomes } = useSelector(
     (state: TRootState) => state
@@ -77,8 +81,13 @@ const AccountListView = () => {
     <>
       <section className={NAME_SPACE}>
         <header className={`${NAME_SPACE}__header`}>
-          <h3 className={`${NAME_SPACE}__title`}>Account List</h3>
-          <UIIconButton icon="plus" size="big" onClick={handleAddClick} />
+          <h3 className={`${NAME_SPACE}__title`}>{STR.ACCOUNTS}</h3>
+          <UIIconButton
+            icon="plus"
+            size="big"
+            onClick={handleAddClick}
+            title={STR.ADD_ACCOUNT}
+          />
         </header>
         {!isEmpty(accounts) ? (
           <ul className="account-list">
@@ -102,6 +111,7 @@ const AccountListView = () => {
         onSave={handleSave}
         data={formData}
         mode={modalMode}
+        STR={STR}
       />
     </>
   );
