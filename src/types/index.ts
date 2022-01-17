@@ -34,4 +34,9 @@ type TCurrency = {
   symbol: string;
 };
 
+export type TTheme = {
+  value: string;
+  label: string;
+};
+
 export type TCurrencyList = Array<TCurrency>;

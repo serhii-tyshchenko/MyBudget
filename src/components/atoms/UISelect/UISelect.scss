@@ -9,6 +9,10 @@
   border-radius: 0.25rem;
   background-color: inherit;
   background-clip: padding-box;
+  cursor: pointer;
+  &:hover {
+    background: var(--background-secondary-hover);
+  }
   &__option {
     color: inherit;
     font-size: inherit;

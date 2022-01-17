@@ -1,4 +1,6 @@
-import { ThemeToggler, LanguageSelector, Navigation } from 'components/molecules';
+import { Navigation } from 'components/molecules';
+import { UIIconLink } from 'components/atoms';
+import { NavLink } from 'react-router-dom';
 
 import { NAME_SPACE } from './constants';
 
@@ -8,19 +10,18 @@ const Header = () => (
   <header className={NAME_SPACE}>
     <div className={`${NAME_SPACE}__content wrapper`}>
       <div className={`${NAME_SPACE}__left`}>
-        <span className={`${NAME_SPACE}__logo`}>
+        <NavLink to="/" className={`${NAME_SPACE}__logo`}>
           {process.env.REACT_APP_NAME}
-        </span>
+        </NavLink>
       </div>
       <div className={`${NAME_SPACE}__middle`}>
         <Navigation />
       </div>
       <div className={`${NAME_SPACE}__right`}>
-        <LanguageSelector />
-        <ThemeToggler />
+        <UIIconLink to="/settings" size="big" title="Go to settings" />
       </div>
     </div>
-  </header>
+  </header >
 );
 
 export { Header };
