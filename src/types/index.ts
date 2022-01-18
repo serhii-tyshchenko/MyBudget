@@ -34,9 +34,15 @@ type TCurrency = {
   symbol: string;
 };
 
+type TLanguage = {
+  value: string;
+  label: string;
+};
+
 export type TTheme = {
   value: string;
   label: string;
 };
 
 export type TCurrencyList = Array<TCurrency>;
+export type TLanguageList = Array<TLanguage>;
