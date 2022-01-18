@@ -2,6 +2,7 @@ import { useContext, memo } from 'react';
 import { NavLink } from 'react-router-dom';
 
 import { Localization } from 'contexts';
+import { routes } from 'constants/index';
 
 import { NAME_SPACE } from './constants';
 import { getLinkClassName } from './utils';
@@ -13,13 +14,13 @@ const Navigation = () => {
 
   return (
     <nav className={NAME_SPACE}>
-      <NavLink to="/" className={getLinkClassName}>
+      <NavLink to={routes.HOME_PAGE} className={getLinkClassName}>
         {STR.ACCOUNTS}
       </NavLink>
-      <NavLink to="/expenses" className={getLinkClassName}>
+      <NavLink to={routes.EXPENSES} className={getLinkClassName}>
         {STR.EXPENSES}
       </NavLink>
-      <NavLink to="/incomes" className={getLinkClassName}>
+      <NavLink to={routes.INCOMES} className={getLinkClassName}>
         {STR.INCOME}
       </NavLink>
     </nav>

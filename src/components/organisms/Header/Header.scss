@@ -2,14 +2,14 @@
 @import '~styles/mixins';
 
 .header {
+  padding: 0.75rem 0;
   background-color: var(--background-secondary);
-  padding: 0.5rem 0;
 
   &__content {
-    align-items: center;
     display: flex;
-    justify-content: space-between;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
     padding: 0 15px;
   }
 
@@ -18,18 +18,18 @@
   }
 
   &__logo {
+    margin-right: 0;
+    padding-left: 0;
     color: var(--color-primary);
     font: bold 1.5rem $font-secondary;
     line-height: 1;
     text-decoration: none;
     background: none;
-    margin-right: 0;
-    padding-left: 0;
 
     @include for-size(mobile-large) {
-      background: url('~logo.svg') no-repeat left center / 24px;
       margin-right: 1.25rem;
       padding-left: 32px;
+      background: url('~logo.svg') no-repeat left center / 24px;
     }
   }
 
@@ -43,20 +43,24 @@
   }
 
   &__middle {
-    order: 3;
-    flex-basis: 100%;
-    margin: 0 auto;
-    padding: 1.5rem 0;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.25rem;
+    background-color: var(--background-secondary);
+    z-index: 100;
     @include for-size(tablet) {
+      position: relative;
       order: 2;
-      flex-basis: auto;
+      width: auto;
       padding: 0;
     }
   }
 
   &__right {
-    align-items: center;
     display: flex;
+    align-items: center;
     order: 2;
   }
 }

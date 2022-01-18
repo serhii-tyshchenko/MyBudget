@@ -4,6 +4,8 @@ import { TRootState } from 'store';
 
 import { Home, Expenses, Incomes, Settings } from 'pages';
 
+import { routes } from 'constants/index';
+
 const App = () => {
   const { theme } = useSelector((state: TRootState) => state.settings);
   document.documentElement.setAttribute('data-theme', theme);
@@ -11,10 +13,10 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/expenses" element={<Expenses />} />
-        <Route path="/incomes" element={<Incomes />} />
-        <Route path="/settings" element={<Settings />} />
+        <Route path={routes.HOME_PAGE} element={<Home />} />
+        <Route path={routes.EXPENSES} element={<Expenses />} />
+        <Route path={routes.INCOMES} element={<Incomes />} />
+        <Route path={routes.SETTINGS} element={<Settings />} />
       </Routes>
     </Router>
   );
