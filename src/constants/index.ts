@@ -19,7 +19,8 @@ export const routes = {
   SETTINGS: '/settings',
 };
 
-export const themes: Array<TTheme> = [
-  { value: 'dark', label: 'Dark' },
-  { value: 'light', label: 'Light' },
-];
+export const themes: TTheme = {
+  DARK: 'dark',
+  LIGHT: 'light',
+  SYSTEM: 'system',
+};

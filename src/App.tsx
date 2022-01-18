@@ -1,14 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { useSelector } from 'react-redux';
-import { TRootState } from 'store';
+
+import { useTheme } from 'hooks';
 
 import { Home, Expenses, Incomes, Settings } from 'pages';
 
 import { routes } from 'constants/index';
 
 const App = () => {
-  const { theme } = useSelector((state: TRootState) => state.settings);
-  document.documentElement.setAttribute('data-theme', theme);
+  useTheme();
 
   return (
     <Router>

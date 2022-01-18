@@ -40,8 +40,7 @@ type TLanguage = {
 };
 
 export type TTheme = {
-  value: string;
-  label: string;
+  [key: string]: string;
 };
 
 export type TCurrencyList = Array<TCurrency>;
