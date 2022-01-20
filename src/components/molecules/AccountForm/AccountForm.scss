@@ -1,0 +1,36 @@
+@import '~styles/variables';
+@import '~styles/mixins';
+
+.account-form {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  &__main {
+    margin-bottom: 2rem;
+    flex-grow: 1;
+  }
+  &__label {
+    flex-shrink: 0;
+    margin-right: 1rem;
+  }
+  &__name {
+    width: 100%;
+  }
+  &__balance {
+    width: 100px;
+  }
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    @include for-size(mobile-large) {
+      flex-direction: row;
+    }
+  }
+  &__submit-btn {
+    margin-bottom: 2rem;
+    @include for-size(mobile-large) {
+      margin-bottom: 0;
+    }
+  }
+}

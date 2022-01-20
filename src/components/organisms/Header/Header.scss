@@ -1,0 +1,66 @@
+@import '~styles/variables';
+@import '~styles/mixins';
+
+.header {
+  padding: 0.75rem 0;
+  background-color: var(--background-secondary);
+
+  &__content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+  }
+
+  &__link {
+    text-decoration: none;
+  }
+
+  &__logo {
+    margin-right: 0;
+    padding-left: 0;
+    color: var(--color-primary);
+    font: bold 1.5rem $font-secondary;
+    line-height: 1;
+    text-decoration: none;
+    background: none;
+
+    @include for-size(mobile-large) {
+      margin-right: 1.25rem;
+      padding-left: 32px;
+      background: url('~logo.svg') no-repeat left center / 24px;
+    }
+  }
+
+  &__title {
+    @include for-size(tablet) {
+      font-size: 1.5rem;
+    }
+  }
+  &__left {
+    order: 1;
+  }
+
+  &__middle {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 1.25rem;
+    background-color: var(--background-secondary);
+    z-index: 100;
+    @include for-size(tablet) {
+      position: relative;
+      order: 2;
+      width: auto;
+      padding: 0;
+    }
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    order: 2;
+  }
+}

@@ -1,0 +1,10 @@
+.settings-categories-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.settings-categories-list-item {
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+}

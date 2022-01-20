@@ -1,0 +1,15 @@
+@import '~styles/variables';
+
+.expense-form {
+  &__main {
+    margin-bottom: 2rem;
+  }
+  &__label {
+    flex-shrink: 0;
+    margin-right: 1rem;
+  }
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+  }
+}

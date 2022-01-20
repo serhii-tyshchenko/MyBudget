@@ -1,0 +1,28 @@
+@import '~styles/_variables';
+
+.ui-icon-button {
+  color: var(--color-primary);
+  border-radius: 50%;
+  border: 0;
+  background: inherit;
+  cursor: pointer;
+  &__text {
+    font-size: 0;
+  }
+  &:hover {
+    background: var(--background-secondary-hover);
+  }
+  &--normal {
+    font-size: 1rem;
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+  &--small {
+    font-size: 0.75rem;
+  }
+  &--big {
+    font-size: 1.5rem;
+    width: 2.25rem;
+    height: 2.25rem;
+  }
+}

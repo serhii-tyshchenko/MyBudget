@@ -1,0 +1,25 @@
+:root {
+  --color-primary: #{$color-black};
+  --color-secondary: #{$color-mishka};
+  --color-secondary-darken: #{darken($color-mishka, 10%)};
+  --color-accent: #{$color-dodger-blue};
+  --background-primary: #{$color-solitude};
+  --background-secondary: #{$color-white};
+  --background-secondary-hover: #{lighten($color-white, 10%)};
+}
+[data-theme='dark'] {
+  --color-primary: #{$color-white};
+  --color-secondary: #{$color-mishka};
+  --color-accent: #{$color-dodger-blue};
+  --background-primary: #{$color-black};
+  --background-secondary: #{$color-bunker};
+  --background-secondary-hover: #{lighten($color-bunker, 10%)};
+}
+[data-theme='light'] {
+  --color-primary: #{$color-black};
+  --color-secondary: #{$color-mishka};
+  --color-accent: #{$color-dodger-blue};
+  --background-primary: #{$color-solitude};
+  --background-secondary: #{$color-white};
+  --background-secondary-hover: #{darken($color-white, 10%)};
+}

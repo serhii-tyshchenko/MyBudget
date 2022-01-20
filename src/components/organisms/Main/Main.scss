@@ -1,0 +1,17 @@
+@import '~styles/variables';
+@import '~styles/mixins';
+
+.main {
+  display: flex;
+  flex-grow: 1;
+  color: var(--color-primary);
+  background: var(--background-primary);
+  overflow: hidden;
+  &__content {
+    width: 100%;
+    padding: 30px 15px;
+    @include for-size(tablet) {
+      padding: 1rem;
+    }
+  }
+}
