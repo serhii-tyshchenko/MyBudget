@@ -27,6 +27,9 @@ export const translations: TTranslation = {
     ABOUT: 'About',
     VERSION: 'Version',
     DEVELOPER: 'Developer',
+    ACCOUNT_DELETE_CONFIRM: `Are you sure you want to delete this account?\nWARNING! All connected expenses and incomes will be also deleted.`,
+    RECORD_DELETE_CONFIRM: 'Are you sure you want to delete this record?',
+    ADD_RECORD: 'Add record',
   },
   ua: {
     SIGN_IN: 'Увійти',
@@ -54,6 +57,9 @@ export const translations: TTranslation = {
     ABOUT: 'Про программу',
     VERSION: 'Версія',
     DEVELOPER: 'Розробник',
+    ACCOUNT_DELETE_CONFIRM: `Ви впевнені, що хочете видалити цей гаманець?\nУВАГА! Всі пов’язані прибутки та витрати будуь також видалені.`,
+    RECORD_DELETE_CONFIRM: 'Ви впевнені, що хочете видалити цей запис?',
+    ADD_RECORD: 'Додати запис',
   },
   ru: {
     SIGN_IN: 'Войти',
@@ -81,5 +87,8 @@ export const translations: TTranslation = {
     ABOUT: 'О программе',
     VERSION: 'Версия',
     DEVELOPER: 'Разработчик',
+    ACCOUNT_DELETE_CONFIRM: `Вы уверены, что хотите удалить этот кошелёк?\nВНИМАНИЕ! Все связанные расходы и доходы будут также удалены.`,
+    RECORD_DELETE_CONFIRM: 'Вы уверены, что хочете удалить эту запись?',
+    ADD_RECORD: 'Добавить запись',
   },
 };

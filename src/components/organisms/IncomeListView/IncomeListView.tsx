@@ -1,4 +1,6 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+
+import { Localization } from 'contexts';
 
 import { useSelector, useDispatch } from 'react-redux';
 import { TRootState } from 'store';
@@ -30,11 +32,12 @@ const IncomeListView = () => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [formData, setFormData] = useState(defaultFormData);
   const dispatch = useDispatch();
+  const STR = useContext(Localization);
 
   const { incomes } = useSelector((state: TRootState) => state);
 
   const handleDeleteClick = (id: string): void => {
-    if (window.confirm('Are you sure?')) {
+    if (window.confirm(STR.RECORD_DELETE_CONFIRM)) {
       dispatch(removeIncome(id));
     }
   };
@@ -66,12 +69,12 @@ const IncomeListView = () => {
     <>
       <section className={NAME_SPACE}>
         <header className={`${NAME_SPACE}__header`}>
-          <h3 className={`${NAME_SPACE}__title`}>Income List</h3>
+          <h3 className={`${NAME_SPACE}__title`}>{STR.INCOME}</h3>
           <UIIconButton
             icon="plus"
             size="big"
             onClick={handleAddClick}
-            title="Add income"
+            title={STR.ADD_RECORD}
           />
         </header>
         {!isEmpty(incomes) ? (

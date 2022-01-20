@@ -49,7 +49,7 @@ const AccountListView = () => {
   };
 
   const handleDeleteClick = (id: string): void => {
-    if (window.confirm('Are you sure?')) {
+    if (window.confirm(STR.ACCOUNT_DELETE_CONFIRM)) {
       dispatch(removeAccount(id));
     }
   };
