@@ -12,6 +12,8 @@ export * from './IncomeListItem';
 export * from './IncomeModal';
 export * from './IncomeForm';
 
+export * from './SettingsViewItem';
+
 export * from './UIModal';
 export * from './UIModalConfirm';
 export * from './UIFormGroup';

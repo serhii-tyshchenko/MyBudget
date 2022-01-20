@@ -3,7 +3,6 @@ import { UIFormGroup } from 'components/molecules';
 import { UIInput, UIButton, UISelect, UITextarea } from 'components/atoms';
 import { useSelector } from 'react-redux';
 import { TRootState } from 'store';
-import { expenseCategories } from 'mocks/categories';
 
 import { TExpenseFormProps } from './types';
 import { NAME_SPACE, defaultFormData } from './constants';
@@ -13,9 +12,9 @@ import './ExpenseForm.scss';
 
 const ExpenseForm = ({ data, onClose, onSave }: TExpenseFormProps) => {
   const [formData, setFormData] = useState(data || defaultFormData);
-  const { accounts } = useSelector((state: TRootState) => state);
+  const { accounts, settings } = useSelector((state: TRootState) => state);
   const accountOptions = getSelectOptions(accounts);
-  const expenseOptions = getSelectOptions(expenseCategories);
+  const expenseOptions = getSelectOptions(settings.categories.expenses);
 
   const handleChange = (e: { target: { name: any; value: any } }) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
