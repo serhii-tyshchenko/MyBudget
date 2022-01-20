@@ -8,8 +8,10 @@ import { TRootState } from 'store';
 
 import { languages, themes } from 'constants/index';
 
-import { UIFormGroup } from 'components/molecules';
+import { UIFormGroup, SettingsViewItem } from 'components/molecules';
 import { UISelect } from 'components/atoms';
+
+import { AboutCard } from './cards';
 
 import { getThemeOptions } from './utils';
 
@@ -20,7 +22,7 @@ const NAME_SPACE = 'settings-view';
 const SettingsView = () => {
   const dispatch = useDispatch();
   const STR = useContext(Localization);
-  const { language, theme } = useSelector(
+  const { language, theme, categories } = useSelector(
     (state: TRootState) => state.settings
   );
   const handleSettingsChange = ({
@@ -35,8 +37,7 @@ const SettingsView = () => {
     <>
       <section className={NAME_SPACE}>
         <h3>{STR.SETTINGS}</h3>
-        <fieldset className={`${NAME_SPACE}-item`}>
-          <h4 className={`${NAME_SPACE}-item__legend`}>{STR.GENERAL}</h4>
+        <SettingsViewItem title={STR.GENERAL}>
           <UIFormGroup>
             <span>{STR.LANGUAGE}</span>
             <UISelect
@@ -57,20 +58,30 @@ const SettingsView = () => {
               title={STR.TOGGLE_LANGUAGE}
             />
           </UIFormGroup>
-        </fieldset>
-        <fieldset className={`${NAME_SPACE}-item`}>
-          <h4 className={`${NAME_SPACE}-item__legend`}>{STR.ABOUT}</h4>
-          <UIFormGroup>
-            <span>{STR.VERSION}</span>
-            {process.env.REACT_APP_VERSION}
-          </UIFormGroup>
-          <UIFormGroup>
-            <span>{STR.DEVELOPER}</span>
-            <a href={process.env.REACT_APP_AUTHOR_URL}>
-              {process.env.REACT_APP_AUTHOR_NAME}
-            </a>
-          </UIFormGroup>
-        </fieldset>
+        </SettingsViewItem>
+        <SettingsViewItem title={STR.EXPENSE_CATEGORIES}>
+          <ul className="settings-categories-list">
+            {categories.expenses.map(
+              (category: { id: string; name: string }) => (
+                <li className="settings-categories-list-item" key={category.id}>
+                  {category.name}
+                </li>
+              )
+            )}
+          </ul>
+        </SettingsViewItem>
+        <SettingsViewItem title={STR.INCOME_CATEGORIES}>
+          <ul className="settings-categories-list">
+            {categories.incomes.map(
+              (category: { id: string; name: string }) => (
+                <li className="settings-categories-list-item" key={category.id}>
+                  {category.name}
+                </li>
+              )
+            )}
+          </ul>
+        </SettingsViewItem>
+        <AboutCard STR={STR} />
       </section>
     </>
   );
