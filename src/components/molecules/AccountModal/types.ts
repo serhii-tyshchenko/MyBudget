@@ -1,10 +1,9 @@
-import { TAccount, TTranslation } from 'types';
+import { TAccount } from 'types';
 
 export type TAccountModalProps = {
   onClose: Function;
   onSave: Function;
   isVisible: boolean;
   data?: TAccount;
-  mode: string;
-  STR: TTranslation;
+  title: string;
 };

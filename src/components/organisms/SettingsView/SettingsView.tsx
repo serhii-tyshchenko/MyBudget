@@ -1,7 +1,7 @@
-import { useContext, useMemo } from 'react';
+import { useMemo } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { Localization } from 'contexts';
+import { useLocalization } from 'hooks';
 
 import { updateSettings } from 'store/actions';
 import { TRootState } from 'store';
@@ -21,7 +21,7 @@ const NAME_SPACE = 'settings-view';
 
 const SettingsView = () => {
   const dispatch = useDispatch();
-  const STR = useContext(Localization);
+  const STR = useLocalization();
   const { language, theme, categories } = useSelector(
     (state: TRootState) => state.settings
   );

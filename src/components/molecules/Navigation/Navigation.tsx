@@ -1,7 +1,7 @@
-import { useContext, memo } from 'react';
+import { memo } from 'react';
 import { NavLink } from 'react-router-dom';
+import { useLocalization } from 'hooks';
 
-import { Localization } from 'contexts';
 import { routes } from 'constants/index';
 
 import { NAME_SPACE } from './constants';
@@ -10,7 +10,7 @@ import { getLinkClassName } from './utils';
 import './Navigation.scss';
 
 const Navigation = () => {
-  const STR = useContext(Localization);
+  const STR = useLocalization();
 
   return (
     <nav className={NAME_SPACE}>

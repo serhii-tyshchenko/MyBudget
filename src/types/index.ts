@@ -10,16 +10,12 @@ export type TAccount = {
   isHidden: boolean;
 };
 
-export type TIncome = {
+export type TCategory = {
   id: string;
-  date: string;
-  account: string;
-  category: string;
-  amount: number;
-  note: string;
+  name: string;
 };
 
-export type TExpense = {
+export type TRecord = {
   id: string;
   date: string;
   account: string;

@@ -1,8 +1,7 @@
-import { TAccount, TTranslation } from 'types';
+import { TAccount } from 'types';
 
 export type TAccountFormProps = {
   onSave: Function;
   onClose: Function;
   data?: TAccount;
-  STR: TTranslation;
 };

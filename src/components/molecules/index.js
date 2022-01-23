@@ -4,13 +4,9 @@ export * from './AccountListItem';
 export * from './AccountModal';
 export * from './AccountForm';
 
-export * from './ExpenseListItem';
-export * from './ExpenseModal';
-export * from './ExpenseForm';
-
-export * from './IncomeListItem';
-export * from './IncomeModal';
-export * from './IncomeForm';
+export * from './DataListItem';
+export * from './DataForm';
+export * from './DataModal';
 
 export * from './SettingsViewItem';
 
