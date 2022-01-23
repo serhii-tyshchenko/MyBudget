@@ -1,7 +1,6 @@
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-
-import { Localization } from 'contexts';
+import { useLocalization } from 'hooks';
 
 import { addAccount, updateAccount, removeAccount } from 'store/actions';
 import { TRootState } from 'store';
@@ -29,11 +28,13 @@ const AccountListView = () => {
   const [isModalVisible, setModalVisible] = useState(false);
   const [formData, setFormData] = useState(defaultFormData);
   const dispatch = useDispatch();
-  const STR = useContext(Localization);
+  const STR = useLocalization();
 
   const { accounts, expenses, incomes } = useSelector(
     (state: TRootState) => state
   );
+
+  const modalTitle = modalMode === 'add' ? STR.ADD_ACCOUNT : STR.EDIT_ACCOUNT;
 
   const getAccountBalance = (id: string): number => {
     const initialBalance = Number(
@@ -110,8 +111,7 @@ const AccountListView = () => {
         onClose={handleClose}
         onSave={handleSave}
         data={formData}
-        mode={modalMode}
-        STR={STR}
+        title={modalTitle}
       />
     </>
   );

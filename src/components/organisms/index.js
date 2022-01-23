@@ -1,9 +1,10 @@
+export * from './DataList';
+export * from './DataListView';
+
 export * from './AccountListView';
 
-export * from './ExpenseList';
 export * from './ExpenseListView';
 
-export * from './IncomeList';
 export * from './IncomeListView';
 
 export * from './SettingsView';

@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { useLocalization } from 'hooks';
+
 import { UIFormGroup } from 'components/molecules';
 import { UIInput, UICheckbox, UIButton, UISelect } from 'components/atoms';
 
@@ -7,8 +9,9 @@ import { NAME_SPACE, defaultFormData } from './constants';
 
 import './AccountForm.scss';
 
-const AccountForm = ({ data, onClose, onSave, STR }: TAccountFormProps) => {
+const AccountForm = ({ data, onClose, onSave }: TAccountFormProps) => {
   const [formData, setFormData] = useState(data || defaultFormData);
+  const STR = useLocalization();
 
   const handleChange = (e: {
     target: { name: any; value: any; checked: any };

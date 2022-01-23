@@ -1,100 +1,38 @@
-import { useState, useContext } from 'react';
-
-import { Localization } from 'contexts';
-
 import { useSelector, useDispatch } from 'react-redux';
 import { TRootState } from 'store';
 import { addExpense, updateExpense, removeExpense } from 'store/actions';
 
-import { ExpenseModal } from 'components/molecules';
-import { UIIconButton } from 'components/atoms';
-import { ExpenseList } from 'components/organisms';
+import { useLocalization } from 'hooks';
 
-import { isEmpty, getId } from 'utils';
+import { DataListView } from 'components/organisms';
 
-import { TExpense } from 'types';
+import { getId } from 'utils';
 
-import './ExpenseListView.scss';
-
-const defaultFormData: TExpense = {
-  id: '',
-  date: '',
-  account: '',
-  category: '',
-  amount: 0,
-  note: '',
-};
-
-const NAME_SPACE = 'expense-list-view';
+import { TRecord } from 'types';
 
 const ExpenseListView = () => {
-  const [modalMode, setModalMode] = useState('add');
-  const [isModalVisible, setModalVisible] = useState(false);
-  const [formData, setFormData] = useState(defaultFormData);
   const dispatch = useDispatch();
-  const STR = useContext(Localization);
+  const STR = useLocalization();
 
-  const { expenses } = useSelector((state: TRootState) => state);
+  const { expenses, accounts, settings } = useSelector(
+    (state: TRootState) => state
+  );
 
-  const handleDeleteClick = (id: string): void => {
-    if (window.confirm(STR.RECORD_DELETE_CONFIRM)) {
-      dispatch(removeExpense(id));
-    }
-  };
-
-  const handleEditClick = (id: string): void => {
-    setModalMode('edit');
-    const expense = expenses.find((expense) => expense.id === id);
-    setFormData(expense);
-    setModalVisible(true);
-  };
-
-  const handleAddClick = () => {
-    setModalMode('add');
-    setFormData(defaultFormData);
-    setModalVisible(true);
-  };
-  const handleClose = () => setModalVisible(false);
-  const handleSave = (data: TExpense) => {
-    if (modalMode === 'add') {
-      dispatch(addExpense({ ...data, id: getId() }));
-    } else {
-      dispatch(updateExpense(data.id, data));
-    }
-
-    setModalVisible(false);
-  };
+  const onDelete = (id: string) => dispatch(removeExpense(id));
+  const onUpdate = (data: TRecord) => dispatch(updateExpense(data.id, data));
+  const onAdd = (data: TRecord) =>
+    dispatch(addExpense({ ...data, id: getId() }));
 
   return (
-    <>
-      <section className={NAME_SPACE}>
-        <header className={`${NAME_SPACE}__header`}>
-          <h3 className={`${NAME_SPACE}__title`}>{STR.EXPENSES}</h3>
-          <UIIconButton
-            icon="plus"
-            size="big"
-            onClick={handleAddClick}
-            title={STR.ADD_RECORD}
-          />
-        </header>
-        {!isEmpty(expenses) ? (
-          <ExpenseList
-            data={expenses}
-            onEditItem={handleEditClick}
-            onDeleteItem={handleDeleteClick}
-          />
-        ) : (
-          <p>No data to show</p>
-        )}
-      </section>
-      <ExpenseModal
-        isVisible={isModalVisible}
-        onClose={handleClose}
-        onSave={handleSave}
-        data={formData}
-        mode={modalMode}
-      />
-    </>
+    <DataListView
+      data={expenses}
+      accounts={accounts}
+      categories={settings.categories.expenses}
+      title={STR.EXPENSES}
+      onDelete={onDelete}
+      onUpdate={onUpdate}
+      onAdd={onAdd}
+    />
   );
 };
 

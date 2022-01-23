@@ -1,6 +1,6 @@
 import { createPortal } from 'react-dom';
-import { useContext } from 'react';
-import { Localization } from 'contexts';
+import { useLocalization } from 'hooks';
+
 import { getClassName } from 'utils';
 import { UIIconButton } from 'components/atoms';
 
@@ -11,7 +11,7 @@ const NAME_SPACE = 'ui-modal';
 const UIModal = ({
   title, isVisible, onClose, children, className,
 }) => {
-  const STR = useContext(Localization);
+  const STR = useLocalization();
   const componentClassName = getClassName(NAME_SPACE, className);
 
   const modalRoot = document.getElementById('portal-root');
