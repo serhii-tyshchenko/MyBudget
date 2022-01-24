@@ -1,1 +1,1 @@
-export { UIModalConfirm } from './UIModalConfirm';
+export * from './UIModalConfirm';
