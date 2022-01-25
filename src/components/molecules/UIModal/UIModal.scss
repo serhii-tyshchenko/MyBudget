@@ -50,11 +50,11 @@
     font-weight: bold;
     font-size: 1.25rem;
   }
-  &__content {
+  &__main {
     display: flex;
     flex-direction: column;
     flex-grow: 1;
-    padding: 20px;
+    padding: 1.25rem;
     overflow: auto;
   }
   &__btn-close {

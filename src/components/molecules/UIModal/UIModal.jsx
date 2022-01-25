@@ -16,17 +16,17 @@ const UIModal = ({
 
   const modalRoot = document.getElementById('portal-root');
 
-  return isVisible && createPortal(
+  return isVisible ? createPortal(
     (
       <div className={`${NAME_SPACE}__backdrop`}>
         <div
           role="dialog"
-          aria-labelledby="ui-modal-title"
+          aria-labelledby="modal-title"
           aria-modal="true"
           className={componentClassName}
         >
-          <div className="ui-modal__header">
-            <h4 id="ui-modal-title" className={`${NAME_SPACE}__title`}>{title}</h4>
+          <header className={`${NAME_SPACE}__header`}>
+            <h4 id="modal-title" className={`${NAME_SPACE}__title`}>{title}</h4>
             <UIIconButton
               className={`${NAME_SPACE}__btn-close`}
               icon="cancel"
@@ -34,13 +34,13 @@ const UIModal = ({
               onClick={onClose}
               title={STR.CLOSE}
             />
-          </div>
-          <div className={`${NAME_SPACE}__content`}>{children}</div>
+          </header>
+          <main className={`${NAME_SPACE}__main`}>{children}</main>
         </div>
       </div>
     ),
     modalRoot,
-  );
+  ) : null;
 };
 
 UIModal.defaultProps = {

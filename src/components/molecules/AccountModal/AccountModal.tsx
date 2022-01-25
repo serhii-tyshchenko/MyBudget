@@ -8,12 +8,10 @@ const AccountModal = ({
   isVisible,
   data,
   title,
-}: TAccountModalProps) => {
-  return (
-    <UIModal isVisible={isVisible} onClose={onClose} title={title}>
-      <AccountForm onClose={onClose} onSave={onSave} data={data} />
-    </UIModal>
-  );
-};
+}: TAccountModalProps) => (
+  <UIModal isVisible={isVisible} onClose={onClose} title={title}>
+    <AccountForm onClose={onClose} onSave={onSave} data={data} />
+  </UIModal>
+);
 
 export { AccountModal };

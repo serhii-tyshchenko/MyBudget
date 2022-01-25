@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { useLocalization } from 'hooks';
+import { useLocalization, useModalState } from 'hooks';
 
 import { UIIconButton } from 'components/atoms';
 import { DataModal } from 'components/molecules';
@@ -42,9 +42,11 @@ const DataListView = ({
   onAdd,
 }: TProps) => {
   const [modalMode, setModalMode] = useState('add');
-  const [isModalVisible, setModalVisible] = useState(false);
   const [formData, setFormData] = useState(defaultFormData);
+
   const STR = useLocalization();
+
+  const { isOpen, closeModal, openModal } = useModalState();
 
   const modalTitle = String(
     modalMode === 'add' ? STR.ADD_RECORD : STR.EDIT_RECORD
@@ -62,22 +64,21 @@ const DataListView = ({
     if (dataItem) {
       setFormData(dataItem);
     }
-    setModalVisible(true);
+    openModal();
   };
 
   const handleAddClick = () => {
     setModalMode('add');
     setFormData(defaultFormData);
-    setModalVisible(true);
+    openModal();
   };
-  const handleClose = () => setModalVisible(false);
   const handleSave = (data: TRecord) => {
     if (modalMode === 'add') {
       onAdd(data);
     } else {
       onUpdate(data);
     }
-    setModalVisible(false);
+    closeModal();
   };
 
   return (
@@ -103,8 +104,8 @@ const DataListView = ({
         )}
       </section>
       <DataModal
-        isVisible={isModalVisible}
-        onClose={handleClose}
+        isVisible={isOpen}
+        onClose={closeModal}
         onSave={handleSave}
         data={formData}
         title={modalTitle}

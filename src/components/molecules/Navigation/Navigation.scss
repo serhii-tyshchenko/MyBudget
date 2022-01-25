@@ -1,18 +1,46 @@
 @import '~styles/variables';
+@import '~styles/mixins';
 
 .navigation {
   display: flex;
+  gap: 3rem;
   justify-content: center;
   &__link {
-    margin-right: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0 1.5rem;
+    color: var(--color-secondary);
+    text-decoration: none;
+    border-top: 4px solid var(--background-secondary);
     user-select: none;
-    &:last-child {
-      margin-right: 0;
+    @include for-size(tablet) {
+      padding: 0;
+      border: 0;
+    }
+    rect,
+    circle {
+      stroke: var(--color-secondary);
     }
     &--active {
-      font-weight: bold;
-      text-decoration: none;
+      color: var(--color-accent);
+      border-top: 4px solid var(--color-accent);
       pointer-events: none;
+      @include for-size(tablet) {
+        border: 0;
+      }
+      rect,
+      circle {
+        stroke: var(--color-accent);
+      }
+    }
+  }
+  &__logo {
+    width: 48px;
+    height: 48px;
+    margin-bottom: 0.5rem;
+    @include for-size(tablet) {
+      display: none;
     }
   }
 }

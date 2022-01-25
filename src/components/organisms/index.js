@@ -1,6 +1,7 @@
 export * from './DataList';
 export * from './DataListView';
 
+export * from './AccountList';
 export * from './AccountListView';
 
 export * from './ExpenseListView';

@@ -2,12 +2,8 @@
 @import '~styles/mixins';
 
 .account-form {
-  display: flex;
-  flex-direction: column;
-  flex-grow: 1;
   &__main {
-    margin-bottom: 2rem;
-    flex-grow: 1;
+    margin-bottom: 3rem;
   }
   &__label {
     flex-shrink: 0;
