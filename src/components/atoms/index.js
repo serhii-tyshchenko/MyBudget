@@ -8,3 +8,5 @@ export * from './UITabs';
 export * from './UINotification';
 export * from './UIDropdown';
 export * from './UITextarea';
+
+export * from './AddButton';
