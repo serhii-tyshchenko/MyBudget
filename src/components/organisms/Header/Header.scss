@@ -46,10 +46,9 @@
     position: fixed;
     bottom: 0;
     left: 0;
-    width: 100%;
-    padding: 1.25rem;
-    background-color: var(--background-secondary);
     z-index: 100;
+    width: 100%;
+    background-color: var(--background-secondary);
     @include for-size(tablet) {
       position: relative;
       order: 2;
