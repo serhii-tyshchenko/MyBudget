@@ -14,6 +14,7 @@
     text-decoration: none;
     user-select: none;
     @include for-size(tablet) {
+      font-size: 1.25rem;
       padding: 0;
       border: 0;
     }
