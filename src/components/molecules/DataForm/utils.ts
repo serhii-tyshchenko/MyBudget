@@ -1,5 +1,7 @@
-export const getSelectOptions = (data: { id: any; name: any }[]) =>
-  data.map(({ id, name }) => ({
+export const getSelectOptions = (data: { id: any; name: any }[]) => [
+  { value: '', label: '— — —', disabled: true },
+  ...data.map(({ id, name }) => ({
     value: id,
     label: name,
-  }));
+  })),
+];

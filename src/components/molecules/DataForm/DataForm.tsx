@@ -6,7 +6,7 @@ import { UIFormGroup } from 'components/molecules';
 
 import { TDataFormProps } from './types';
 import { NAME_SPACE, defaultFormData } from './constants';
-import { getSelectOptions } from './utils';
+import { useNewRecordSettings } from './hooks';
 
 import './DataForm.scss';
 
@@ -19,8 +19,10 @@ const DataForm = ({
 }: TDataFormProps) => {
   const [formData, setFormData] = useState(data || defaultFormData);
   const STR = useLocalization();
-  const accountOptions = getSelectOptions(accounts);
-  const categoryOptions = getSelectOptions(categories);
+  const { accountOptions, categoryOptions } = useNewRecordSettings({
+    accounts,
+    categories,
+  });
 
   const handleChange = (e: { target: { name: any; value: any } }) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -49,6 +51,7 @@ const DataForm = ({
             value={formData.account}
             options={accountOptions}
             onChange={handleChange}
+            className={`${NAME_SPACE}__field-account`}
           />
         </UIFormGroup>
         <UIFormGroup>
@@ -58,6 +61,7 @@ const DataForm = ({
             value={formData.category}
             options={categoryOptions}
             onChange={handleChange}
+            className={`${NAME_SPACE}__field-category`}
           />
         </UIFormGroup>
         <UIFormGroup>
@@ -67,14 +71,20 @@ const DataForm = ({
             onChange={handleChange}
             name="amount"
             value={formData.amount}
+            className={`${NAME_SPACE}__field-amount`}
           />
         </UIFormGroup>
         <UIFormGroup vertical>
-          <span className={`${NAME_SPACE}__label`}>{STR.NOTE}</span>
+          <span
+            className={`${NAME_SPACE}__label ${NAME_SPACE}__label--vertical`}
+          >
+            {STR.NOTE}
+          </span>
           <UITextarea
             name="note"
             value={formData.note}
             onChange={handleChange}
+            className={`${NAME_SPACE}__field-note`}
           />
         </UIFormGroup>
       </main>
