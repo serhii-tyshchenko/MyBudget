@@ -8,6 +8,9 @@
   margin-bottom: 1rem;
   background-color: var(--background-secondary);
   border-radius: 0.5rem;
+  &:last-child {
+    margin-bottom: 0;
+  }
   &__data {
     flex-grow: 1;
     display: flex;
