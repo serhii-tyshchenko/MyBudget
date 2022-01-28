@@ -18,26 +18,15 @@
   }
 
   &__logo {
-    margin-right: 0;
-    padding-left: 0;
+    margin-right: 1.25rem;
+    padding-left: 32px;
     color: var(--color-primary);
     font: bold 1.5rem $font-secondary;
     line-height: 1;
     text-decoration: none;
-    background: none;
-
-    @include for-size(mobile-large) {
-      margin-right: 1.25rem;
-      padding-left: 32px;
-      background: url('~logo.svg') no-repeat left center / 24px;
-    }
+    background: url('~logo.svg') no-repeat left center / 24px;
   }
 
-  &__title {
-    @include for-size(tablet) {
-      font-size: 1.5rem;
-    }
-  }
   &__left {
     order: 1;
   }

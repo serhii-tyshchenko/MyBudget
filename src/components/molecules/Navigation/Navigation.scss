@@ -9,10 +9,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem 0 1.5rem;
+    padding: 0.75rem 0;
     color: var(--color-secondary);
     text-decoration: none;
-    border-top: 4px solid var(--background-secondary);
     user-select: none;
     @include for-size(tablet) {
       padding: 0;
@@ -24,7 +23,6 @@
     }
     &--active {
       color: var(--color-accent);
-      border-top: 4px solid var(--color-accent);
       pointer-events: none;
       @include for-size(tablet) {
         border: 0;
@@ -36,8 +34,9 @@
     }
   }
   &__logo {
-    width: 48px;
-    height: 48px;
+    $size: 1.5rem;
+    width: $size;
+    height: $size;
     margin-bottom: 0.5rem;
     @include for-size(tablet) {
       display: none;
