@@ -1,1 +1,1 @@
-export { UITextarea } from './UITextarea';
+export * from './UITextarea';
