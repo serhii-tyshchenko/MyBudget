@@ -8,8 +8,6 @@ export * from './ExpenseListView';
 
 export * from './IncomeListView';
 
-export * from './SettingsView';
-
 export * from './Header';
 export * from './Main';
 export * from './ErrorBoundary';

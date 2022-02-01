@@ -1,12 +1,12 @@
 @import '~styles/variables';
-@import '~styles/mixins';
 
-.settings-view-item {
-  padding: 1rem;
+$block-name: '.settings-item';
+
+#{$block-name} {
   border: 0;
   border-radius: 0.5rem;
   background-color: var(--background-secondary);
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
 
   &__legend {
     margin-bottom: 1.25rem;

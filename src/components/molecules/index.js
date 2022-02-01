@@ -8,7 +8,7 @@ export * from './DataListItem';
 export * from './DataForm';
 export * from './DataModal';
 
-export * from './SettingsViewItem';
+export * from './SettingsModal';
 
 export * from './UIModal';
 export * from './UIModalConfirm';
