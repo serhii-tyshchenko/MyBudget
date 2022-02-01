@@ -1,22 +1,20 @@
 import { useCallback } from 'react';
+
 import { useLocalization } from 'hooks';
-import { TRecord } from 'types';
 
 import { UIIconButton } from 'components/atoms';
 
+import { useFormatData } from './hooks';
+import { TProps } from './types';
+import { NAME_SPACE } from './constants';
+
 import './DataListItem.scss';
-
-const NAME_SPACE = 'data-list-item';
-
-type TProps = {
-  onDeleteClick: Function;
-  onEditClick: Function;
-  data: TRecord;
-};
 
 const DataListItem = ({ data, onDeleteClick, onEditClick }: TProps) => {
   const { id, date, amount, note, account, category } = data;
   const STR = useLocalization();
+
+  const { accountName, categoryName } = useFormatData(account, category);
 
   const handleDeleteClick = useCallback(
     () => onDeleteClick(id),
@@ -28,21 +26,11 @@ const DataListItem = ({ data, onDeleteClick, onEditClick }: TProps) => {
   return (
     <li className={NAME_SPACE}>
       <div className={`${NAME_SPACE}__data`}>
-        <span>
-          {STR.DATE}: {date}
-        </span>
-        <span>
-          {STR.ACCOUNT}: {account}
-        </span>
-        <span>
-          {STR.CATEGORY}: {category}
-        </span>
-        <span>
-          {STR.AMOUNT}: {amount}
-        </span>
-        <span>
-          {STR.NOTE}: {note}
-        </span>
+        <span className={`${NAME_SPACE}__date`}>{date}</span>
+        <span className={`${NAME_SPACE}__account`}>{accountName}</span>
+        <span className={`${NAME_SPACE}__category`}>{categoryName}</span>
+        <span className={`${NAME_SPACE}__amount`}>{amount}</span>
+        <span className={`${NAME_SPACE}__note`}>{note}</span>
       </div>
       <div className={`${NAME_SPACE}__controls`}>
         <UIIconButton

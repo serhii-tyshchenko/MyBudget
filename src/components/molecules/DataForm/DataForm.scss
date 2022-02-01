@@ -7,7 +7,23 @@
   &__label {
     flex-shrink: 0;
     margin-right: 1rem;
+    &--vertical {
+      margin-right: 0;
+      margin-bottom: 0.5rem;
+    }
   }
+  &__field-account,
+  &__field-category {
+    min-width: 10rem;
+  }
+  &__field-amount {
+    width: 8rem;
+  }
+  &__field-note {
+    min-height: 50px;
+    max-height: 100px;
+  }
+
   &__footer {
     display: flex;
     justify-content: space-between;

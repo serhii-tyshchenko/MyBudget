@@ -79,7 +79,7 @@ const AccountForm = ({ data, onClose, onSave }: TAccountFormProps) => {
       </main>
       <footer className={`${NAME_SPACE}__footer`}>
         <UIButton
-          text={STR.ADD}
+          text={STR.SAVE}
           onClick={handleSubmit}
           className={`${NAME_SPACE}__submit-btn`}
         />

@@ -1,4 +1,4 @@
-import { DataListItem } from 'components/molecules';
+import { DataListItem, DataListItemHeader } from 'components/molecules';
 
 import { TProps } from './types';
 
@@ -8,6 +8,7 @@ const NAME_SPACE = 'data-list';
 
 const DataList = ({ data, onEditItem, onDeleteItem }: TProps) => (
   <ul className={NAME_SPACE}>
+    <DataListItemHeader />
     {data.map((item) => (
       <DataListItem
         data={item}
